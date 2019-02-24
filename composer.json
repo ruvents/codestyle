@@ -1,0 +1,27 @@
+{
+  "name": "ruvents/codestyle",
+  "license": "MIT",
+  "description": "Корпоративный стандарт оформления кода.",
+  "type": "phpcodesniffer-standard",
+  "keywords": ["cs", "codesniffer"],
+  "authors": [
+    {
+      "name": "Maksim Makhniuk",
+      "email": "maksim.makhniuk@ruvents.com",
+      "homepage": "https://ruvents.com",
+      "role": "Contributor"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "RUVENTS\\": "src"
+    }
+  },
+  "require-dev": {
+    "php": ">=7.1",
+    "roave/security-advisories": "dev-master",
+    "squizlabs/php_codesniffer": "3.4.0",
+    "slevomat/coding-standard": "5.0.0",
+    "fig-r/psr2r-sniffer": "0.5.0"
+  }
+}
