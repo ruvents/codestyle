@@ -14,7 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "RUVENTS\\": "src"
+      "RUVENTS\\": "RUVENTS"
     }
   },
   "require-dev": {
