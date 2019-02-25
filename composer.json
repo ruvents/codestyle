@@ -20,9 +20,6 @@
   "scripts": {
     "test": [
       "RUVENTS\\Scripts::check"
-    ],
-    "codestyle": [
-      "./vendor/bin/phpcs --parallel=32"
     ]
   },
   "require": {
