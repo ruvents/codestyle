@@ -14,14 +14,20 @@ class Scripts
     {
         $finder = (new Finder())
             ->in(self::CFG_PROJECTS_DIR)
-            ->depth(1)
-            ->name('phpcs.xml');
+            ->depth(1);
+
+        // Удалим, возможно оставшиеся, файлы phpcs.temp.xml по проектам.
+        echo "Удаление временных файлов...\n";
+        foreach ($finder->name('phpcs.temp.xml') as $path) {
+            unlink((string) $path);
+            echo " - {$path}\n";
+        }
 
         $projects = [];
-        $currentDir = __DIR__;
 
-        foreach ($finder as $phpcsXmlFile) {
-            $projectPath = dirname((string) $phpcsXmlFile);
+        echo "Поиск проектов для тестирования...\n";
+        foreach ($finder->name('phpcs.xml') as $phpcsConfigPath) {
+            $projectPath = dirname((string) $phpcsConfigPath);
             $projectName = basename($projectPath);
             $composerConfigPath = "{$projectPath}/composer.json";
 
@@ -55,7 +61,20 @@ class Scripts
         }
 
         foreach ($projects as $project) {
-            system("cd '{$project}' && ./vendor/bin/phpcs --parallel=32 --standard={$currentDir} ./");
+            $customStandartConfigFile = "{$project}/phpcs.temp.xml";
+
+            // Создаём копию phpcs.xml с изменённым путём расположения файлов стандарта.
+            file_put_contents($customStandartConfigFile, str_replace(
+                '<config name="installed_paths" value="vendor/ruvents/codestyle/RUVENTS"/>',
+                '<config name="installed_paths" value="/Users/opcode/Documents/Projects/ruvents.com/codestyle/RUVENTS"/>',
+                file_get_contents("{$project}/phpcs.xml")
+            ));
+
+            // Запускаем проверки
+            system("cd '{$project}' && ./vendor/bin/phpcs --parallel=32 --standard={$customStandartConfigFile} ./");
+
+            // Удаляем временный файл с настройками phpcs
+            unlink($customStandartConfigFile);
         }
     }
 }
