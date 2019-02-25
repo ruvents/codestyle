@@ -50,7 +50,6 @@
     </rule>
     -->
     <rule ref="Generic.Files.LineEndings"/>
-    <rule ref="Generic.Files.LowercasedFilename"/>
     <rule ref="Generic.Files.OneClassPerFile"/>
     <rule ref="Generic.Files.OneInterfacePerFile"/>
     <rule ref="Generic.Files.OneObjectStructurePerFile"/>
@@ -89,7 +88,10 @@
     <rule ref="Generic.PHP.LowerCaseType"/>
     <rule ref="Generic.PHP.NoSilencedErrors"/>
     <rule ref="Generic.PHP.SAPIUsage"/>
-    <rule ref="Generic.PHP.Syntax"/>
+    <rule ref="Generic.PHP.Syntax">
+        <!-- toDo: Потому что не умеет запятую после последнего параметра в многострочных вызовах функций... -->
+        <exclude name="Generic.PHP.Syntax.PHPSyntax"/>
+    </rule>
     <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
     <rule ref="Generic.VersionControl.GitMergeConflict"/>
     <rule ref="Generic.VersionControl.SubversionProperties"/>
@@ -105,12 +107,29 @@
     <rule ref="Generic.WhiteSpace.ScopeIndent"/>
 
     <rule ref="PEAR.Classes.ClassDeclaration"/>
-    <rule ref="PEAR.Commenting.ClassComment"/>
-    <rule ref="PEAR.Commenting.FunctionComment"/>
+    <rule ref="PEAR.Commenting.ClassComment">
+        <exclude name="PEAR.Commenting.ClassComment.MissingAuthorTag"/>
+        <exclude name="PEAR.Commenting.ClassComment.MissingCategoryTag"/>
+        <exclude name="PEAR.Commenting.ClassComment.MissingLicenseTag"/>
+        <exclude name="PEAR.Commenting.ClassComment.MissingLinkTag"/>
+        <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag"/>
+    </rule>
+    <rule ref="PEAR.Commenting.FunctionComment">
+        <exclude name="PEAR.Commenting.FunctionComment.ParamCommentAlignment"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
+        <!-- toDo: Потому что нет желания выравнивать переменные в doc-блоках... -->
+        <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
+    </rule>
     <rule ref="PEAR.Commenting.InlineComment"/>
     <rule ref="PEAR.ControlStructures.ControlSignature"/>
     <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
-    <rule ref="PEAR.Functions.FunctionCallSignature"/>
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+    </rule>
     <rule ref="PEAR.Functions.FunctionDeclaration"/>
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
     <rule ref="PEAR.NamingConventions.ValidClassName">
@@ -125,9 +144,13 @@
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <rule ref="PEAR.WhiteSpace.ScopeClosingBrace"/>
-    <rule ref="PEAR.WhiteSpace.ScopeIndent"/>
+    <!--<rule ref="PEAR.WhiteSpace.ScopeIndent"/> toDo: Как-то странно работает со switch case... -->
 
     <rule ref="PSR1.Classes.ClassDeclaration"/>
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/migrations/*</exclude-pattern>
+        <exclude-pattern>*/Yii.php</exclude-pattern>
+    </rule>
     <!--<rule ref="PSR1.Files.SideEffects"/> toDo: спорное правило... -->
     <rule ref="PSR1.Methods.CamelCapsMethodName"/>
 
@@ -138,7 +161,9 @@
     <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
     <rule ref="PSR2.Files.ClosingTag"/>
     <rule ref="PSR2.Files.EndFileNewline"/>
-    <rule ref="PSR2.Methods.FunctionCallSignature"/>
+    <rule ref="PSR2.Methods.FunctionCallSignature">
+        <exclude name="PSR2.Methods.FunctionCallSignature.ContentAfterOpenBracket"/>
+    </rule>
     <rule ref="PSR2.Methods.FunctionClosingBrace"/>
     <rule ref="PSR2.Methods.MethodDeclaration">
         <!-- Данным исключением обязаны старому Yii 1.x -->
@@ -169,7 +194,15 @@
     -->
 
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
-    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
     <rule ref="Squiz.Classes.ClassDeclaration"/>
     <rule ref="Squiz.Classes.ClassFileName">
         <exclude-pattern>*/migrations/*</exclude-pattern>
@@ -179,23 +212,53 @@
     <rule ref="Squiz.Classes.ValidClassName">
         <exclude-pattern>*/migrations/*</exclude-pattern>
     </rule>
-    <rule ref="Squiz.Commenting.BlockComment"/>
-    <rule ref="Squiz.Commenting.ClassComment"/>
+    <rule ref="Squiz.Commenting.BlockComment">
+        <!-- Потому что хочется @noinspection -->
+        <exclude name="Squiz.Commenting.BlockComment.SingleLine"/>
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
+    <!--<rule ref="Squiz.Commenting.ClassComment"/> toDo: Потому что не получилось разрешить @property-read... -->
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.Commenting.EmptyCatchComment"/>
-    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+        <!-- toDo: Потому что нет желания выравнивать параметры в doc-блоках -->
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
+    </rule>
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
-    <rule ref="Squiz.Commenting.InlineComment"/>
-    <rule ref="Squiz.Commenting.PostStatementComment"/>
-    <rule ref="Squiz.Commenting.VariableComment"/>
+    <rule ref="Squiz.Commenting.InlineComment">
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
+    <!--<rule ref="Squiz.Commenting.VariableComment"/> toDo: Потому что не получилось разрешить @deprecated.... -->
     <rule ref="Squiz.ControlStructures.ControlSignature"/>
-    <rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
+    <rule ref="Squiz.ControlStructures.ElseIfDeclaration">
+        <exclude name="Squiz.ControlStructures.ElseIfDeclaration.NotAllowed"/>
+    </rule>
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
     <rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
-    <rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration">
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/>
+    </rule>
     <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
-    <rule ref="Squiz.ControlStructures.SwitchDeclaration"/>
-    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration">
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.DefaultNoBreak"/>
+    </rule>
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <properties>
+            <property name="equalsSpacing" type="int" value="1"/>
+            <property name="requiredSpacesAfterOpen" type="int" value="0"/>
+            <property name="requiredSpacesBeforeClose" type="int" value="0"/>
+        </properties>
+    </rule>
     <rule ref="Squiz.Functions.FunctionDeclaration"/>
     <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
     <rule ref="Squiz.Functions.GlobalFunction"/>
@@ -204,10 +267,14 @@
     <rule ref="Squiz.NamingConventions.ValidFunctionName">
         <exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
     </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+    </rule>
     <rule ref="Squiz.Objects.DisallowObjectStringIndex"/>
     <rule ref="Squiz.Objects.ObjectMemberComma"/>
-    <rule ref="Squiz.Operators.ComparisonOperatorUsage"/>
+    <rule ref="Squiz.Operators.ComparisonOperatorUsage">
+        <exclude name="Squiz.Operators.ComparisonOperatorUsage.ImplicitTrue"/>
+    </rule>
     <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
     <rule ref="Squiz.Operators.ValidLogicalOperators"/>
     <rule ref="Squiz.PHP.CommentedOutCode">
@@ -216,7 +283,11 @@
         </properties>
     </rule>
     <rule ref="Squiz.PHP.DiscouragedFunctions"/>
-    <rule ref="Squiz.PHP.EmbeddedPhp"/>
+    <rule ref="Squiz.PHP.EmbeddedPhp">
+        <exclude name="Squiz.PHP.EmbeddedPhp.OpenTagIndent"/>
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen"/>
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd"/>
+    </rule>
     <rule ref="Squiz.PHP.Eval"/>
     <rule ref="Squiz.PHP.GlobalKeyword"/>
     <rule ref="Squiz.PHP.Heredoc"/>
