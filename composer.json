@@ -17,10 +17,23 @@
       "RUVENTS\\": "RUVENTS"
     }
   },
+  "scripts": {
+    "test": [
+      "RUVENTS\\Scripts::check"
+    ],
+    "codestyle": [
+      "./vendor/bin/phpcs --parallel=32"
+    ]
+  },
   "require": {
     "php": ">=7.1",
+    "ext-json": "*",
     "squizlabs/php_codesniffer": "3.4.0",
     "slevomat/coding-standard": "5.0.0",
     "fig-r/psr2r-sniffer": "0.5.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "symfony/finder": "4.2.3"
   }
 }
