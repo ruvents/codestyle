@@ -31,6 +31,11 @@
     <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
     <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
     <!--<rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/> разработчики иногда переопределяют функции только для того, что бы поменять значение по-умолчанию для параметра метода -->
+    <rule ref="Generic.Commenting.DocComment">
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent"/>
+        <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
 
     <!--
         Расширенные:
@@ -42,6 +47,8 @@
         <rule ref="Generic.Classes.OpeningBraceSameLine"/> мы требуем, что бы у класса "{" была в новой строке...
         <rule ref="Generic.CodeAnalysis.AssignmentInCondition"/> это иногда очень удобно и улучшает читабельность кода при правильном использовании...
         <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/> по хорошему, конечно, такого быть не должно, но бывает...
+        <rule ref="Generic.Commenting.Fixme"/> вообще, может и не хорошо такое иметь в кодовой базе, может включить?...
+        <rule ref="Generic.Commenting.Todo"/> вообще, может и не хорошо такое иметь в кодовой базе, может включить?...
     -->
 
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
