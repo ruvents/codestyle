@@ -13,6 +13,12 @@
     <!-- Специфичные для Laravel -->
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
+    <rule ref="RUVENTS.NamingConventions.CamelCaseFunctionName">
+        <properties>
+            <property name="useCustomId" type="bool" value="true"/>
+        </properties>
+    </rule>
+
     <!--<rule ref="RUVENTS.CodeAnalysis.EmptyStatement"> toDo: Походу не нужен, благодаря Squiz.Commenting.EmptyCatchComment
         <properties>
             <property name="ignoreEmptyCatchStatements" type="bool" value="true"/>
@@ -73,7 +79,6 @@
         </properties>
     </rule>
     -->
-    <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
     <rule ref="Generic.NamingConventions.ConstructorName"/>
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
