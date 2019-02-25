@@ -13,11 +13,11 @@
     <!-- Специфичные для Laravel -->
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
-    <rule ref="RUVENTS.CodeAnalysis.EmptyStatement">
+    <!--<rule ref="RUVENTS.CodeAnalysis.EmptyStatement"> toDo: Походу не нужен, благодаря Squiz.Commenting.EmptyCatchComment
         <properties>
             <property name="ignoreEmptyCatchStatements" type="bool" value="true"/>
         </properties>
-    </rule>
+    </rule>-->
 
     <!-- Разрешаем наличие php-файлов без php-кода в них. -->
     <rule ref="Internal.NoCodeFound">
@@ -35,7 +35,123 @@
         <exclude name="Generic.Commenting.DocComment.TagValueIndent"/>
         <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
+    <rule ref="Generic.ControlStructures.InlineControlStructure">
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
+    </rule>
+    <rule ref="Generic.Files.ByteOrderMark"/>
+    <rule ref="Generic.Files.EndFileNewline"/>
+    <!-- обдумать это требование
+    <rule ref="Generic.Files.InlineHTML">
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
+    </rule>
+    -->
+    <rule ref="Generic.Files.LineEndings"/>
+    <rule ref="Generic.Files.LowercasedFilename"/>
+    <rule ref="Generic.Files.OneClassPerFile"/>
+    <rule ref="Generic.Files.OneInterfacePerFile"/>
+    <rule ref="Generic.Files.OneObjectStructurePerFile"/>
+    <rule ref="Generic.Files.OneTraitPerFile"/>
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+    <rule ref="Generic.Formatting.SpaceAfterCast"/>
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+    <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" type="int" value="10"/>
+            <property name="absoluteComplexity" type="int" value="30"/>
+        </properties>
+    </rule>
+    <!-- подумать, надо оно?
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="nestingLevel" type="int" value="10"/>
+            <property name="absoluteNestingLevel" type="int" value="15"/>
+        </properties>
+    </rule>
+    -->
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
+    <rule ref="Generic.NamingConventions.ConstructorName"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Generic.PHP.BacktickOperator"/>
+    <!--<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/> так как для шаблонов часто надо -->
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
+    <!--<rule ref="Generic.PHP.DisallowShortOpenTag"/> toDo: Разобраться с этим, так то надо обыграть... -->
+    <rule ref="Generic.PHP.DiscourageGoto"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions"/>
+    <rule ref="Generic.PHP.LowerCaseConstant"/>
+    <rule ref="Generic.PHP.LowerCaseKeyword"/>
+    <rule ref="Generic.PHP.LowerCaseType"/>
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+    <rule ref="Generic.PHP.SAPIUsage"/>
+    <rule ref="Generic.PHP.Syntax"/>
+    <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+    <rule ref="Generic.VersionControl.GitMergeConflict"/>
+    <rule ref="Generic.VersionControl.SubversionProperties"/>
+    <!--<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"> toDo: разобраться что это и надо ли...
+        <properties>
+            <property name="spacing" type="int" value="0"/>
+            <property name="ignoreNewlines" type="bool" value="false"/>
+        </properties>
+    </rule>-->
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
+    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
+    <rule ref="Generic.WhiteSpace.ScopeIndent"/>
+
+    <rule ref="PEAR.Classes.ClassDeclaration"/>
+    <rule ref="PEAR.Commenting.ClassComment"/>
+    <rule ref="PEAR.Commenting.FunctionComment"/>
+    <rule ref="PEAR.Commenting.InlineComment"/>
+    <rule ref="PEAR.ControlStructures.ControlSignature"/>
+    <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
+    <rule ref="PEAR.Functions.FunctionCallSignature"/>
+    <rule ref="PEAR.Functions.FunctionDeclaration"/>
+    <rule ref="PEAR.Functions.ValidDefaultValue"/>
+    <rule ref="PEAR.NamingConventions.ValidClassName">
+        <exclude-pattern>*/migrations/*</exclude-pattern>
+    </rule>
+    <rule ref="PEAR.NamingConventions.ValidFunctionName">
+        <exclude name="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+    </rule>
+    <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
+        <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
+    </rule>
+    <rule ref="PEAR.WhiteSpace.ScopeClosingBrace"/>
+    <rule ref="PEAR.WhiteSpace.ScopeIndent"/>
+
+    <rule ref="PSR1.Classes.ClassDeclaration"/>
+    <!--<rule ref="PSR1.Files.SideEffects"/> toDo: спорное правило... -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName"/>
+
+    <rule ref="PSR2.Classes.ClassDeclaration"/>
+    <rule ref="PSR2.Classes.PropertyDeclaration"/>
+    <rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+    <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+    <rule ref="PSR2.Files.ClosingTag"/>
+    <rule ref="PSR2.Files.EndFileNewline"/>
+    <rule ref="PSR2.Methods.FunctionCallSignature"/>
+    <rule ref="PSR2.Methods.FunctionClosingBrace"/>
+    <rule ref="PSR2.Methods.MethodDeclaration">
+        <!-- Данным исключением обязаны старому Yii 1.x -->
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+    </rule>
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+    <rule ref="PSR2.Namespaces.UseDeclaration"/>
+
+    <rule ref="PSR12.Classes.ClassInstantiation"/>
+    <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
+    <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
+    <rule ref="PSR12.Operators.OperatorSpacing"/>
 
     <!--
         Расширенные:
@@ -49,8 +165,101 @@
         <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/> по хорошему, конечно, такого быть не должно, но бывает...
         <rule ref="Generic.Commenting.Fixme"/> вообще, может и не хорошо такое иметь в кодовой базе, может включить?...
         <rule ref="Generic.Commenting.Todo"/> вообще, может и не хорошо такое иметь в кодовой базе, может включить?...
+        <rule ref="Generic.Files.LineLength"/> позволяем произвольную максимальную длину строки...
     -->
 
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+    <rule ref="Squiz.Classes.ClassDeclaration"/>
+    <rule ref="Squiz.Classes.ClassFileName">
+        <exclude-pattern>*/migrations/*</exclude-pattern>
+    </rule>
     <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+    <rule ref="Squiz.Classes.SelfMemberReference"/>
+    <rule ref="Squiz.Classes.ValidClassName">
+        <exclude-pattern>*/migrations/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.BlockComment"/>
+    <rule ref="Squiz.Commenting.ClassComment"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="Squiz.Commenting.InlineComment"/>
+    <rule ref="Squiz.Commenting.PostStatementComment"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
+    <rule ref="Squiz.ControlStructures.ControlSignature"/>
+    <rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
+    <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
+    <rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
+    <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration"/>
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+    <rule ref="Squiz.Functions.FunctionDeclaration"/>
+    <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+    <rule ref="Squiz.Functions.GlobalFunction"/>
+    <rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName">
+        <exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.Objects.DisallowObjectStringIndex"/>
+    <rule ref="Squiz.Objects.ObjectMemberComma"/>
+    <rule ref="Squiz.Operators.ComparisonOperatorUsage"/>
+    <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
+    <rule ref="Squiz.Operators.ValidLogicalOperators"/>
+    <rule ref="Squiz.PHP.CommentedOutCode">
+        <properties>
+            <property name="maxPercentage" type="int" value="85"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.PHP.DiscouragedFunctions"/>
+    <rule ref="Squiz.PHP.EmbeddedPhp"/>
+    <rule ref="Squiz.PHP.Eval"/>
+    <rule ref="Squiz.PHP.GlobalKeyword"/>
+    <rule ref="Squiz.PHP.Heredoc"/>
+    <rule ref="Squiz.PHP.InnerFunctions"/>
+    <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+    <rule ref="Squiz.Scope.MemberVarScope"/>
+    <rule ref="Squiz.Scope.MethodScope"/>
+    <rule ref="Squiz.Scope.StaticThisUsage"/>
+    <!--<rule ref="Squiz.Strings.ConcatenationSpacing"/> toDo: Может и стоит... -->
+    <!--<rule ref="Squiz.Strings.DoubleQuoteUsage"/>-->
+    <rule ref="Squiz.Strings.EchoedStrings"/>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" type="int" value="1"/>
+            <property name="spacingBeforeFirst" type="int" value="0"/>
+            <property name="spacingAfterLast" type="int" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+    <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+        <properties>
+            <property name="spacing" type="int" value="1"/>
+            <property name="spacingBeforeFirst" type="int" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+        <properties>
+            <property name="ignoreNewlines" type="bool" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing">
+        <properties>
+            <property name="ignoreNewlines" type="bool" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+    <rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 </ruleset>
