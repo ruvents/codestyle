@@ -15,6 +15,8 @@
     <!-- Специфичные для Laravel -->
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
+    <rule ref="RUVENTS.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="RUVENTS.Functions.UselessParameterDefaultValue"/>
     <rule ref="RUVENTS.NamingConventions.CamelCaseFunctionName">
         <properties>
             <property name="useCustomId" type="bool" value="true"/>
@@ -239,7 +241,7 @@
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
     </rule>
-    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <!--<rule ref="Squiz.Commenting.FunctionCommentThrowTag"/> заменён на RUVENTS.Commenting.FunctionCommentThrowTag -->
     <rule ref="Squiz.Commenting.InlineComment">
         <exclude-pattern>*/views/*</exclude-pattern>
     </rule>
@@ -340,4 +342,30 @@
     <rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+
+    <!-- PSR2R -->
+    <rule ref="PSR2R.Classes.ClassCreateInstance"/>
+    <rule ref="PSR2R.Classes.ClassFileName"/>
+    <!--<rule ref="PSR2R.Classes.InterfaceName"/> toDo: Спорная вещь. Обсудить... -->
+    <rule ref="PSR2R.Classes.PropertyDeclaration"/>
+    <rule ref="PSR2R.Classes.SelfAccessor"/>
+    <!--<rule ref="PSR2R.Classes.TraitName"/> toDo: Спорная вещь. Обсудить... -->
+
+
+
+    <!--<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> заменён на RUVENTS.Functions.UselessParameterDefaultValue -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
+        <properties>
+            <!-- Оригинальные значения: T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_BREAK,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM -->
+            <property name="tokensToCheck" type="array" value="T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM"/>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
+        <properties>
+            <property name="linesCountAroundControlStructure" type="int" value="1"/>
+            <property name="linesCountBeforeFirstControlStructure" type="int" value="0"/>
+            <property name="linesCountAfterLastControlStructure" type="int" value="0"/>
+        </properties>
+    </rule>
 </ruleset>
