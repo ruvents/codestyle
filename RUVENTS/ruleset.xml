@@ -352,7 +352,10 @@
     <rule ref="PSR2R.Classes.SelfAccessor"/>
     <!--<rule ref="PSR2R.Classes.TraitName"/> toDo: Спорная вещь. Обсудить... -->
 
-
+    <rule ref="SlevomatCodingStandard.Functions">
+        <!-- Рано такое делать. IDEA/PhpStorm не умеют форматировать такие... -->
+        <exclude name="SlevomatCodingStandard.Functions.TrailingCommaInCall.MissingTrailingComma"/>
+    </rule>
 
     <!--<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> заменён на RUVENTS.Functions.UselessParameterDefaultValue -->
     <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
