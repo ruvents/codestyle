@@ -71,7 +71,7 @@ class CamelCaseFunctionNameSniff implements Sniff
     public $strict = true;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @return array|int[]
      */
@@ -81,7 +81,7 @@ class CamelCaseFunctionNameSniff implements Sniff
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
      */
