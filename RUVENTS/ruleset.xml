@@ -86,6 +86,7 @@
     -->
     <rule ref="Generic.NamingConventions.ConstructorName"/>
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
     <!--<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/> так как для шаблонов часто надо -->
     <rule ref="Generic.PHP.DeprecatedFunctions"/>
