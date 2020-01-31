@@ -352,6 +352,8 @@
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 
+    <!--<rule ref="Squiz.Formatting.OperatorBracket.MissingBrackets"/> дичь, вроде -->
+
     <!-- PSR2R -->
     <rule ref="PSR2R.Classes.ClassCreateInstance"/>
     <rule ref="PSR2R.Classes.ClassFileName"/>
