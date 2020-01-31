@@ -194,6 +194,7 @@
     <rule ref="PSR2.Namespaces.UseDeclaration"/>
 
     <rule ref="PSR12.Classes.ClassInstantiation"/>
+    <!--<rule ref="PSR12.Classes.AnonClassDeclaration"/> не понятно что делает, проверить негде-->
     <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
     <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
     <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
