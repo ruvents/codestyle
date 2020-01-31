@@ -116,6 +116,12 @@
     <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
     <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
     <rule ref="Generic.WhiteSpace.ScopeIndent"/>
+    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter">
+        <properties>
+            <property name="ignoreNewlines" type="bool" value="false"/>
+            <property name="spacing" type="int" value="0"/>
+        </properties>
+    </rule>
 
     <rule ref="PEAR.Classes.ClassDeclaration"/>
     <rule ref="PEAR.Commenting.ClassComment">
