@@ -201,6 +201,7 @@
     <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
     <rule ref="PSR12.Operators.OperatorSpacing"/>
     <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/>
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing"/>
 
     <!--
         Расширенные:
