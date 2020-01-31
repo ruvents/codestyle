@@ -201,6 +201,7 @@
     <!--<rule ref="PSR12.Files.DeclareStatement"/> пока спорно -->
     <!--<rule ref="PSR12.Classes.AnonClassDeclaration"/> не понятно что делает, проверить негде-->
     <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
     <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
     <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
     <rule ref="PSR12.Operators.OperatorSpacing"/>
