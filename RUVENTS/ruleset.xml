@@ -47,6 +47,7 @@
         <exclude-pattern>*/views/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
+    <!--<rule ref="Generic.ControlStructures.DisallowYodaConditions"/> так как мы на светлой стороне! -->
     <rule ref="Generic.ControlStructures.InlineControlStructure">
         <exclude-pattern>*/views/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
