@@ -180,7 +180,6 @@
     <rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
     <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
     <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
-    <rule ref="PSR12.Files.FileHeader"/>
     <rule ref="PSR2.Files.ClosingTag"/>
     <rule ref="PSR2.Files.EndFileNewline"/>
     <rule ref="PSR2.Methods.FunctionCallSignature">
@@ -196,6 +195,9 @@
 
     <rule ref="PSR12.Classes.ClassInstantiation"/>
     <rule ref="PSR12.Classes.ClosingBrace"/>
+    <rule ref="PSR12.Files.FileHeader"/>
+    <rule ref="PSR12.Files.ImportStatement"/>
+    <!--<rule ref="PSR12.Files.DeclareStatement"/> пока спорно -->
     <!--<rule ref="PSR12.Classes.AnonClassDeclaration"/> не понятно что делает, проверить негде-->
     <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
     <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
