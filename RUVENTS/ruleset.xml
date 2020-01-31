@@ -180,6 +180,7 @@
     <rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
     <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
     <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+    <rule ref="PSR12.Files.FileHeader"/>
     <rule ref="PSR2.Files.ClosingTag"/>
     <rule ref="PSR2.Files.EndFileNewline"/>
     <rule ref="PSR2.Methods.FunctionCallSignature">
