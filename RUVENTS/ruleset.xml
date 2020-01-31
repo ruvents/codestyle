@@ -117,21 +117,25 @@
 
     <rule ref="PEAR.Classes.ClassDeclaration"/>
     <rule ref="PEAR.Commenting.ClassComment">
+        <exclude-pattern>/tests/*</exclude-pattern>
         <exclude name="PEAR.Commenting.ClassComment.MissingAuthorTag"/>
         <exclude name="PEAR.Commenting.ClassComment.MissingCategoryTag"/>
         <exclude name="PEAR.Commenting.ClassComment.MissingLicenseTag"/>
         <exclude name="PEAR.Commenting.ClassComment.MissingLinkTag"/>
         <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag"/>
     </rule>
+    <!-- Вроде как полностью дублируется Squiz
     <rule ref="PEAR.Commenting.FunctionComment">
+        <exclude-pattern>/tests/*</exclude-pattern>
         <exclude name="PEAR.Commenting.FunctionComment.ParamCommentAlignment"/>
         <exclude name="PEAR.Commenting.FunctionComment.MissingParamComment"/>
         <exclude name="PEAR.Commenting.FunctionComment.MissingParamTag"/>
         <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
-        <!-- toDo: Потому что нет желания выравнивать переменные в doc-блоках... -->
+        &lt;!&ndash; toDo: Потому что нет желания выравнивать переменные в doc-блоках... &ndash;&gt;
         <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamType"/>
         <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
     </rule>
+    -->
     <rule ref="PEAR.Commenting.InlineComment"/>
     <rule ref="PEAR.ControlStructures.ControlSignature"/>
     <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
@@ -231,6 +235,7 @@
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.Commenting.EmptyCatchComment"/>
     <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude-pattern>/tests/*</exclude-pattern>
         <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
