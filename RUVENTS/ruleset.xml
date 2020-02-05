@@ -195,6 +195,7 @@
 
     <rule ref="PSR12.Classes.ClassInstantiation"/>
     <rule ref="PSR12.Classes.ClosingBrace"/>
+    <rule ref="PSR12.Traits.UseDeclaration"/>
     <rule ref="PSR12.Files.FileHeader"/>
     <rule ref="PSR12.Files.OpenTag"/>
     <rule ref="PSR12.Files.ImportStatement"/>
@@ -270,7 +271,12 @@
     <rule ref="Squiz.Commenting.InlineComment">
         <exclude-pattern>*/views/*</exclude-pattern>
     </rule>
-    <!--<rule ref="Squiz.Commenting.VariableComment"/> toDo: Потому что не получилось разрешить @deprecated.... -->
+    <rule ref="Squiz.Commenting.VariableComment">
+        <!-- Не требуем обязательного наличия @var в документации свойств классов. -->
+        <exclude name="Squiz.Commenting.VariableComment.MissingVar"/>
+        <!-- Неопционально требует boolean вместо bool и integer вместо int. -->
+        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType"/>
+    </rule>
     <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ElseIfDeclaration">
         <exclude name="Squiz.ControlStructures.ElseIfDeclaration.NotAllowed"/>
