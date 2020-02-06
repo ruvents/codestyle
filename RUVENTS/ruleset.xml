@@ -255,13 +255,8 @@
     <rule ref="Squiz.Commenting.EmptyCatchComment"/>
     <rule ref="Squiz.Commenting.FunctionComment">
         <exclude-pattern>/tests/*</exclude-pattern>
-        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
-        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
         <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
         <!-- toDo: Потому что нет желания выравнивать параметры в doc-блоках -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
