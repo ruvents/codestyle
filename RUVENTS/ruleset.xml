@@ -391,14 +391,10 @@
 
     <!--<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> заменён на RUVENTS.Functions.UselessParameterDefaultValue -->
     <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
+        <exclude-pattern>*/views/*</exclude-pattern>
         <properties>
             <!-- Оригинальные значения: T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_BREAK,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM -->
             <property name="tokensToCheck" type="array" value="T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM"/>
-        </properties>
-    </rule>
-
-    <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
-        <properties>
             <property name="linesCountAroundControlStructure" type="int" value="1"/>
             <property name="linesCountBeforeFirstControlStructure" type="int" value="0"/>
             <property name="linesCountAfterLastControlStructure" type="int" value="0"/>
