@@ -16,7 +16,9 @@
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
     <rule ref="RUVENTS.Commenting.FunctionCommentThrowTag"/>
-    <rule ref="RUVENTS.Functions.UselessParameterDefaultValue"/>
+    <rule ref="RUVENTS.Functions.UselessParameterDefaultValue">
+        <exclude name="SlevomatCodingStandard.Functions.UselessParameterDefaultValue.UselessParameterDefaultValue"/>
+    </rule>
     <rule ref="RUVENTS.NamingConventions.CamelCaseFunctionName">
         <properties>
             <property name="useCustomId" type="bool" value="true"/>
@@ -209,6 +211,8 @@
     <rule ref="PSR12.Properties.ConstantVisibility"/>
     <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/>
     <rule ref="PSR12.ControlStructures.ControlStructureSpacing"/>
+    <rule ref="Generic.Commenting.Fixme"/>
+    <rule ref="Generic.Commenting.Todo"/>
 
     <!--
         Расширенные:
