@@ -337,12 +337,15 @@
     <rule ref="Squiz.Scope.MemberVarScope"/>
     <rule ref="Squiz.Scope.MethodScope"/>
     <rule ref="Squiz.Scope.StaticThisUsage"/>
-    <!-- Требуем отсутствие пробелов вокруг конкатенации. Компактность. -->
+    <!-- Требуем отсутствие пробелов вокруг конкатенации. Компактность -->
     <rule ref="Squiz.Strings.ConcatenationSpacing">
         <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
         <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
     </rule>
-    <!--<rule ref="Squiz.Strings.DoubleQuoteUsage"/>-->
+    <!-- Проверяем легитимность использования двойных кавычек в качестве ограничителя строк -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage">
+        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+    </rule>
     <rule ref="Squiz.Strings.EchoedStrings"/>
     <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
     <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
