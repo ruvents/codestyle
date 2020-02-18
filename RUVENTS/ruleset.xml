@@ -15,7 +15,6 @@
     <!-- Специфичные для Laravel -->
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
-    <rule ref="RUVENTS.Commenting.FunctionCommentThrowTag"/>
     <rule ref="RUVENTS.Functions.UselessParameterDefaultValue">
         <exclude name="SlevomatCodingStandard.Functions.UselessParameterDefaultValue.UselessParameterDefaultValue"/>
     </rule>
@@ -266,7 +265,7 @@
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
     </rule>
-    <!--<rule ref="Squiz.Commenting.FunctionCommentThrowTag"/> заменён на RUVENTS.Commenting.FunctionCommentThrowTag -->
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.InlineComment">
         <exclude-pattern>*/views/*</exclude-pattern>
     </rule>
