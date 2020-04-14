@@ -46,11 +46,13 @@
         <exclude name="Generic.Commenting.DocComment.TagValueIndent"/>
         <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <!--<rule ref="Generic.ControlStructures.DisallowYodaConditions"/> так как мы на светлой стороне! -->
     <rule ref="Generic.ControlStructures.InlineControlStructure">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <rule ref="Generic.Files.ByteOrderMark"/>
@@ -58,6 +60,7 @@
     <!-- обдумать это требование
     <rule ref="Generic.Files.InlineHTML">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     -->
@@ -163,6 +166,7 @@
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
         <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <rule ref="PEAR.WhiteSpace.ScopeClosingBrace"/>
@@ -238,6 +242,7 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
     <rule ref="Squiz.Classes.ClassDeclaration"/>
     <rule ref="Squiz.Classes.ClassFileName">
@@ -252,6 +257,7 @@
         <!-- Потому что хочется @noinspection -->
         <exclude name="Squiz.Commenting.BlockComment.SingleLine"/>
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
     <!--<rule ref="Squiz.Commenting.ClassComment"/> toDo: Потому что не получилось разрешить @property-read... -->
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
@@ -268,6 +274,7 @@
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.InlineComment">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
     <rule ref="Squiz.Commenting.VariableComment">
         <!-- Не требуем обязательного наличия @var в документации свойств классов. -->
@@ -396,6 +403,7 @@
     <!--<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> заменён на RUVENTS.Functions.UselessParameterDefaultValue -->
     <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <properties>
             <!-- Оригинальные значения: T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_BREAK,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM -->
             <property name="tokensToCheck" type="array" value="T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM"/>
