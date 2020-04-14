@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="RUVENTS">
-    <config name="installed_paths" value="vendor/slevomat/coding-standard/SlevomatCodingStandard,vendor/fig-r/psr2r-sniffer/PSR2R"/>
+    <config name="installed_paths" value="vendor/slevomat/coding-standard/SlevomatCodingStandard,vendor/fig-r/psr2r-sniffer/PSR2R,./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml,vendor/escapestudios/symfony2-coding-standard"/>
 
     <exclude-pattern>/.git/</exclude-pattern>
     <exclude-pattern>/vendor/</exclude-pattern>
@@ -15,6 +15,11 @@
     <!-- Специфичные для Laravel -->
     <exclude-pattern>/_ide_helper.php</exclude-pattern>
 
+    <!--<rule ref="RUVENTS"/>-->
+
+    <rule ref="RUVENTS.Views.ShortEcho"/>
+    <rule ref="RUVENTS.Views.ShortTagWhitespace"/>
+    <rule ref="RUVENTS.Views.ShortTagForce"/>
     <rule ref="RUVENTS.Functions.UselessParameterDefaultValue">
         <exclude name="SlevomatCodingStandard.Functions.UselessParameterDefaultValue.UselessParameterDefaultValue"/>
     </rule>
@@ -46,11 +51,13 @@
         <exclude name="Generic.Commenting.DocComment.TagValueIndent"/>
         <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <!--<rule ref="Generic.ControlStructures.DisallowYodaConditions"/> так как мы на светлой стороне! -->
     <rule ref="Generic.ControlStructures.InlineControlStructure">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <rule ref="Generic.Files.ByteOrderMark"/>
@@ -58,6 +65,7 @@
     <!-- обдумать это требование
     <rule ref="Generic.Files.InlineHTML">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     -->
@@ -73,7 +81,7 @@
     <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
     <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
-            <property name="complexity" type="int" value="10"/>
+            <property name="complexity" type="int" value="11"/>
             <property name="absoluteComplexity" type="int" value="30"/>
         </properties>
     </rule>
@@ -160,9 +168,13 @@
     <rule ref="PEAR.NamingConventions.ValidFunctionName">
         <exclude name="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
     </rule>
+    <rule ref="PEAR.NamingConventions.ValidVariableName">
+        <exclude name="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+    </rule>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
         <!-- Исключаем данную проверку для вьюшек, так как описание используемых в них переменных не является по-сути док-блоком -->
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <exclude-pattern>/resources/*/*.blade.php</exclude-pattern>
     </rule>
     <rule ref="PEAR.WhiteSpace.ScopeClosingBrace"/>
@@ -235,14 +247,15 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
     <rule ref="Squiz.Classes.ClassDeclaration"/>
     <rule ref="Squiz.Classes.ClassFileName">
         <exclude-pattern>*/migrations/*</exclude-pattern>
     </rule>
+    <rule ref="Squiz.Classes.DuplicateProperty"/>
     <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
     <rule ref="Squiz.Classes.SelfMemberReference"/>
     <rule ref="Squiz.Classes.ValidClassName">
@@ -252,10 +265,13 @@
         <!-- Потому что хочется @noinspection -->
         <exclude name="Squiz.Commenting.BlockComment.SingleLine"/>
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
     <!--<rule ref="Squiz.Commenting.ClassComment"/> toDo: Потому что не получилось разрешить @property-read... -->
+    <!--<rule ref="Squiz.Commenting.ClosingDeclarationComment"/>-->
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+    <!--<rule ref="Squiz.Commenting.FileComment"/> вот бы найти возможность запускать его ТОЛЬКО для шаблонов -->
     <rule ref="Squiz.Commenting.FunctionComment">
         <exclude-pattern>/tests/*</exclude-pattern>
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
@@ -268,7 +284,10 @@
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.InlineComment">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
     </rule>
+    <!--<rule ref="Squiz.Commenting.LongConditionClosingComment"/>-->
+    <rule ref="Squiz.Commenting.PostStatementComment"/>
     <rule ref="Squiz.Commenting.VariableComment">
         <!-- Не требуем обязательного наличия @var в документации свойств классов. -->
         <exclude name="Squiz.Commenting.VariableComment.MissingVar"/>
@@ -290,6 +309,8 @@
         <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
         <exclude name="Squiz.ControlStructures.SwitchDeclaration.DefaultNoBreak"/>
     </rule>
+    <!--<rule ref="Squiz.Files.FileExtension"/>-->
+    <!--<rule ref="Squiz.Formatting.OperatorBracket.MissingBrackets"/>-->
     <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
         <properties>
             <property name="equalsSpacing" type="int" value="1"/>
@@ -309,6 +330,7 @@
         <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
     </rule>
     <rule ref="Squiz.Objects.DisallowObjectStringIndex"/>
+    <!--<rule ref="Squiz.Objects.ObjectInstantiation"/>-->
     <rule ref="Squiz.Objects.ObjectMemberComma"/>
     <rule ref="Squiz.Operators.ComparisonOperatorUsage">
         <exclude name="Squiz.Operators.ComparisonOperatorUsage.ImplicitTrue"/>
@@ -320,6 +342,11 @@
             <property name="maxPercentage" type="int" value="85"/>
         </properties>
     </rule>
+    <!--<rule ref="Squiz.PHP.DisallowBooleanStatement"/>-->
+    <!--<rule ref="Squiz.PHP.DisallowComparisonAssignment"/>-->
+    <!--<rule ref="Squiz.PHP.DisallowInlineIf"/>-->
+    <!--<rule ref="Squiz.PHP.DisallowMultipleAssignments"/>-->
+    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
     <rule ref="Squiz.PHP.DiscouragedFunctions"/>
     <rule ref="Squiz.PHP.EmbeddedPhp">
         <exclude name="Squiz.PHP.EmbeddedPhp.OpenTagIndent"/>
@@ -344,6 +371,7 @@
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
     </rule>
     <rule ref="Squiz.Strings.EchoedStrings"/>
+    <rule ref="Squiz.WhiteSpace.CastSpacing"/>
     <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
     <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
 
@@ -360,10 +388,6 @@
         <properties>
             <property name="spacing" type="int" value="1"/>
             <property name="spacingBeforeFirst" type="int" value="0"/>
-        </properties>
-    </rule>
-    <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
-        <properties>
             <property name="ignoreNewlines" type="bool" value="true"/>
         </properties>
     </rule>
@@ -377,8 +401,6 @@
     <rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
-
-    <!--<rule ref="Squiz.Formatting.OperatorBracket.MissingBrackets"/> дичь, вроде -->
 
     <!-- PSR2R -->
     <rule ref="PSR2R.Classes.ClassCreateInstance"/>
@@ -396,6 +418,7 @@
     <!--<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> заменён на RUVENTS.Functions.UselessParameterDefaultValue -->
     <rule ref="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing">
         <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
         <properties>
             <!-- Оригинальные значения: T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_BREAK,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM -->
             <property name="tokensToCheck" type="array" value="T_IF,T_DO,T_WHILE,T_FOR,T_FOREACH,T_SWITCH,T_TRY,T_GOTO,T_CONTINUE,T_RETURN,T_THROW,T_YIELD,T_YIELD_FROM"/>
@@ -404,4 +427,24 @@
             <property name="linesCountAfterLastControlStructure" type="int" value="0"/>
         </properties>
     </rule>
+
+    <rule ref="Zend.Files.ClosingTag"/>
+
+    <rule name="Security"/>
+
+    <rule ref="Symfony">
+        <exclude name="Symfony.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Symfony.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="Symfony.Commenting.License.Warning"/>
+        <exclude name="Symfony.ControlStructure.YodaConditions.Invalid"/>
+        <exclude name="Symfony.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="Symfony.Commenting.FunctionComment.SpacingAfterParamName"/>
+        <exclude name="Symfony.NamingConventions.ValidClassName.InvalidAbstractName"/>
+        <exclude name="Symfony.Files.AlphanumericFilename.Invalid"/>
+        <exclude name="Generic.PHP.DisallowShortOpenTag.PossibleFound"/>
+        <exclude-pattern>/config/*</exclude-pattern>
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
+    </rule>
+
 </ruleset>
