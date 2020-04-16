@@ -432,7 +432,10 @@
         </properties>
     </rule>
 
-    <rule ref="Zend.Files.ClosingTag"/>
+    <rule ref="Zend.Files.ClosingTag">
+        <exclude-pattern>*/views/*</exclude-pattern>
+        <exclude-pattern>*/partials/*</exclude-pattern>
+    </rule>
     <rule ref="Zend.NamingConventions.ValidVariableName"/>
 
     <rule name="Security"/>
