@@ -248,6 +248,7 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoKeySpecified"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
         <exclude-pattern>*/views/*</exclude-pattern>
         <exclude-pattern>*/partials/*</exclude-pattern>
