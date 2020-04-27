@@ -20,6 +20,7 @@
     <rule ref="RUVENTS.Views.ShortEcho"/>
     <rule ref="RUVENTS.Views.ShortTagWhitespace"/>
     <rule ref="RUVENTS.Functions.UselessParameterDefaultValue">
+    <rule ref="RUVENTS.Views.ShortTagForce"></rule>
         <exclude name="SlevomatCodingStandard.Functions.UselessParameterDefaultValue.UselessParameterDefaultValue"/>
     </rule>
     <rule ref="RUVENTS.NamingConventions.CamelCaseFunctionName">
