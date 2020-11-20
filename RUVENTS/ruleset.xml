@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="RUVENTS">
-    <config name="installed_paths" value="vendor/slevomat/coding-standard/SlevomatCodingStandard,vendor/fig-r/psr2r-sniffer/PSR2R,./vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml,vendor/escapestudios/symfony2-coding-standard"/>
+    <config name="installed_paths" value="../../../vendor/slevomat/coding-standard/SlevomatCodingStandard,../../../vendor/fig-r/psr2r-sniffer/PSR2R,../../../vendor/pheromone/phpcs-security-audit/example_base_ruleset.xml,../../../vendor/escapestudios/symfony2-coding-standard"/>
 
     <exclude-pattern>/.git/</exclude-pattern>
     <exclude-pattern>/vendor/</exclude-pattern>
