@@ -394,7 +394,6 @@
         <properties>
             <property name="spacing" type="int" value="1"/>
             <property name="spacingBeforeFirst" type="int" value="0"/>
-            <property name="ignoreNewlines" type="bool" value="true"/>
         </properties>
     </rule>
     <rule ref="Squiz.WhiteSpace.OperatorSpacing">
