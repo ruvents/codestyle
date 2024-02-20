@@ -20,7 +20,7 @@
     <rule ref="RUVENTS.Views.ShortEcho"/>
     <rule ref="RUVENTS.Views.ShortTagWhitespace"/>
     <rule ref="RUVENTS.Functions.UselessParameterDefaultValue">
-    <rule ref="RUVENTS.Views.ShortTagForce"></rule>
+        <rule ref="RUVENTS.Views.ShortTagForce"></rule>
         <exclude name="SlevomatCodingStandard.Functions.UselessParameterDefaultValue.UselessParameterDefaultValue"/>
     </rule>
     <rule ref="RUVENTS.NamingConventions.CamelCaseFunctionName">
@@ -390,7 +390,6 @@
         <properties>
             <property name="spacing" type="int" value="1"/>
             <property name="spacingBeforeFirst" type="int" value="0"/>
-            <property name="ignoreNewlines" type="bool" value="true"/>
         </properties>
     </rule>
     <rule ref="Squiz.WhiteSpace.OperatorSpacing">
@@ -404,15 +403,10 @@
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 
-    <!-- PSR2R -->
-    <rule ref="PSR2R.Classes.ClassCreateInstance"/>
-    <rule ref="PSR2R.Classes.ClassFileName"/>
-    <!--<rule ref="PSR2R.Classes.InterfaceName"/> toDo: Спорная вещь. Обсудить... -->
-    <rule ref="PSR2R.Classes.PropertyDeclaration"/>
-    <rule ref="PSR2R.Classes.SelfAccessor"/>
-    <!--<rule ref="PSR2R.Classes.TraitName"/> toDo: Спорная вещь. Обсудить... -->
-
     <rule ref="SlevomatCodingStandard.Functions">
+        <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength"/>
+        <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall.DisallowedTrailingComma"/>
+        <exclude name="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall.MissingTrailingComma"/>
         <!-- Рано такое делать. IDEA/PhpStorm не умеют форматировать такие... -->
         <exclude name="SlevomatCodingStandard.Functions.TrailingCommaInCall.MissingTrailingComma"/>
     </rule>
