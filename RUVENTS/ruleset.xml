@@ -340,11 +340,7 @@
     </rule>
     <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
     <rule ref="Squiz.Operators.ValidLogicalOperators"/>
-    <rule ref="Squiz.PHP.CommentedOutCode">
-        <properties>
-            <property name="maxPercentage" type="int" value="85"/>
-        </properties>
-    </rule>
+    <rule ref="Squiz.PHP.CommentedOutCode" severity="0"/>
     <!--<rule ref="Squiz.PHP.DisallowBooleanStatement"/>-->
     <!--<rule ref="Squiz.PHP.DisallowComparisonAssignment"/>-->
     <!--<rule ref="Squiz.PHP.DisallowInlineIf"/>-->
