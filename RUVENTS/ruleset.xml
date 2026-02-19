@@ -409,6 +409,8 @@
         <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength"/>
         <!--Противоречит другому правилу многострочного вызова, при этом на однострочном вызове все равно будет ошибка, напоминающая о лишней запятой-->
         <exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall.DisallowedTrailingComma"/>
+        <!-- Разрешаем arrow functions -->
+        <exclude name="SlevomatCodingStandard.Functions.DisallowArrowFunction.DisallowedArrowFunction"/>
     </rule>
 
     <rule ref="Zend.Files.ClosingTag">
